@@ -1,0 +1,15 @@
+Vehiculo tiene un fabricante
+
+Fabricante posee muchos vehiculos
+
+Vehiculo
+-#serie
+-color
+-cilindraje
+-potencia
+-peso
+
+Fabricante
+-#id
+-Nombre
+-Telefono
