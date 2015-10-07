@@ -8,6 +8,7 @@ Vehiculo
 -cilindraje
 -potencia
 -peso
+FK: fabricante_id
 
 Fabricante
 -#id
