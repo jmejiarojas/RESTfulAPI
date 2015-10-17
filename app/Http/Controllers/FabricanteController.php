@@ -37,7 +37,7 @@ class FabricanteController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		return "recibiendo";
 	}
 
 	/**
@@ -50,7 +50,7 @@ class FabricanteController extends Controller {
 	{
 		$fabricante= Fabricante::find($id);
 		if(!$fabricante){
-			return response()->json(['mensaje' => 'No se encuentra este fabricante','codigo' => 404,404]);
+			return response()->json(['mensaje' => 'No se encuentra este fabricante','codigo' => 404],404);
 		}
 		return response()->json(['dato'=>$fabricante],200);
 	}

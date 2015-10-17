@@ -47,13 +47,14 @@ class VehiculoController extends Controller {
 	 */
 	public function show($id)
 	{
+
 		$vehiculo = Vehiculo::find($id);
 
 		if(!$vehiculo){
-			return response()->json(['mensaje' => 'No se encontro el vehiculo de id '.$id , 'codigo' => 404], 404);
+			return response()->json(['mensaje' => 'No se encontro el vehiculo de id: '.$id, 'codigo' => 404],404);
+		}else{
+			return response()->json(['dato' => $vehiculo , 'codigo' => 202], 202);
 		}
-
-		return response()->json(['dato' => $vehiculo, 'codigo' => 200],200);
 	}
 
 	/**

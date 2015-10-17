@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Fabricante;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -15,8 +16,22 @@ class FabricanteVehiculoController extends Controller {
 
 
 	public function index($id)
-	{
-		return "Mostrando los vehículos que pertenecen al fabricante de id: ".$id;
+	{	/*
+		$fabricante = Fabricante::find($id);
+		//$vehiculos = $fabricante->vehiculos;
+
+		if(!$fabricante){
+			return response()->json(['mensaje' => 'No se encuentra este fabricante','codigo' => 404], 404);
+		}else{
+			return response()->json(['datos' => $fabricante->vehiculos],200);
+		}
+	*/
+		$fabricante = Fabricante::find($id);
+		if(!$fabricante){
+			return response()->json(['mensaje' => 'No existe el fabricante de id: '.$id, 'codigo' => 404],404);
+		}else{
+			return response()->json(['data' => $fabricante->vehiculos, 'codigo' => 202], 202);
+		}
 	}
 
 	/**
@@ -36,7 +51,7 @@ class FabricanteVehiculoController extends Controller {
 	 */
 	public function store()
 	{
-		//
+
 	}
 
 	/**

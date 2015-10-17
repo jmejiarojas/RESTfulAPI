@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Fabricante extends Model {
 
     protected $table = "fabricantes";
@@ -10,7 +11,7 @@ class Fabricante extends Model {
 
     public function vehiculos(){
 
-        return $this->hasMany('Vehiculo');
+        return $this->hasMany('App\Vehiculo');
     }
 
 }
