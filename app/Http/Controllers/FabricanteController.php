@@ -13,6 +13,10 @@ class FabricanteController extends Controller {
 	 *
 	 * @return Response
 	 */
+	public function __construct(){
+		$this->middleware('auth.basic',['only' => ['store','update','destroy']]);
+	}
+
 	public function index()
 	{
 		$fabricantes = Fabricante::all();
@@ -20,32 +24,12 @@ class FabricanteController extends Controller {
 
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return "Mostrando formulario para crear fabricantes";
-	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function store()
 	{
 		return "recibiendo";
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function show($id)
 	{
 		$fabricante= Fabricante::find($id);
@@ -55,37 +39,10 @@ class FabricanteController extends Controller {
 		return response()->json(['dato'=>$fabricante],200);
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		return "Mostrando formulario para editar al fabricante con id: ".$id;
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function update($id)
 	{
-		//
+		return "Recibiendo , estamos en update, metodo POST";
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
 
 }
