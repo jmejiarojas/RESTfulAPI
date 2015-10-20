@@ -25,9 +25,14 @@ class FabricanteController extends Controller {
 	}
 
 
-	public function store()
+	public function store(Request $request)
 	{
-		return "recibiendo";
+		//Si no recibimos los valores
+		if((!$request->input('nombre') || (!$request->input('telefono')))){
+			return response()->json(['mensaje' => 'Complete datos...','codigo' => 422],422);
+		}
+		Fabricante::create($request->all());
+		return response()->json(['mensaje' => 'datos insertados', 'codigo'=>201], 201);
 	}
 
 	public function show($id)

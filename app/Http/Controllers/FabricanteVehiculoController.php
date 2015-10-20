@@ -4,6 +4,7 @@ use App\Fabricante;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Vehiculo;
 use Illuminate\Http\Request;
 
 class FabricanteVehiculoController extends Controller {
@@ -14,6 +15,9 @@ class FabricanteVehiculoController extends Controller {
 	 * @return Response
 	 */
 
+	public function  __construct(){
+		$this->middleware('auth.basic',['only'=>['store','update','store']]);
+	}
 
 	public function index($id)
 	{
@@ -33,9 +37,28 @@ class FabricanteVehiculoController extends Controller {
 	}
 
 
-	public function store()
+	public function store(Request $request, $id)
 	{
+		//Validamos si recibimos todos los parametros: color, cilindraje, potencia, peso
+		/*$color = $request->input('color');
+		$cilindraje = $request->input('cilindraje');
+		$potencia = $request->input('potencia');
+		$peso = $request->input('peso'); */
 
+
+		if(!$request->input('color') || !$request->input('cilindraje') || !$request->input('potencia') || !$request->input('peso')){
+			return response()->json(['mensaje' => 'Complete los datos ...' , 'codigo' => 422], 422);
+			//return "Complete todos los datos";
+		}
+
+		$fabricante = Fabricante::find($id);
+
+		if(!$fabricante){
+			return response()->json(['mensaje' => 'No se encuentra el fabricante con id: '.$id, 'codigo' => 422],422);
+		}
+
+		$fabricante->vehiculos()->create($request->all());
+		return response()->json(['mensaje' => 'Vehiculo insertado', 'codigo' => 201],201);
 	}
 
 
