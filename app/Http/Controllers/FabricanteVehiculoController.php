@@ -16,7 +16,7 @@ class FabricanteVehiculoController extends Controller {
 	 */
 
 	public function  __construct(){
-		$this->middleware('auth.basic',['only'=>['store','update','store']]);
+		$this->middleware('auth.basic',['only'=>['store','update','destroy']]);
 	}
 
 	public function index($id)
@@ -30,21 +30,8 @@ class FabricanteVehiculoController extends Controller {
 		}
 	}
 
-
-	public function create($id)
-	{
-		return "Mostrando formulario para crear vehiculo del fabricante : ".$id;
-	}
-
-
 	public function store(Request $request, $id)
 	{
-		//Validamos si recibimos todos los parametros: color, cilindraje, potencia, peso
-		/*$color = $request->input('color');
-		$cilindraje = $request->input('cilindraje');
-		$potencia = $request->input('potencia');
-		$peso = $request->input('peso'); */
-
 
 		if(!$request->input('color') || !$request->input('cilindraje') || !$request->input('potencia') || !$request->input('peso')){
 			return response()->json(['mensaje' => 'Complete los datos ...' , 'codigo' => 422], 422);
@@ -68,15 +55,9 @@ class FabricanteVehiculoController extends Controller {
 	}
 
 
-	public function edit($idFabricante, $idVehiculo)
-	{
-		return 'Editando vehiculo '.$idVehiculo.' del fabricante '.$idFabricante;
-	}
-
-
 	public function update($idFabricante, $idVehiculo)
 	{
-		//
+		return "Estoy en update";
 	}
 
 

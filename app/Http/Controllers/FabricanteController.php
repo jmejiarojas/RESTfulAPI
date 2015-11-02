@@ -44,9 +44,40 @@ class FabricanteController extends Controller {
 		return response()->json(['dato'=>$fabricante],200);
 	}
 
-	public function update($id)
+	public function update(Request $request,$id)
 	{
-		return "Recibiendo , estamos en update, metodo POST";
+		$metodo = $request->method();
+		$fabricante = Fabricante::find($id);
+
+		if(!$fabricante){
+			return response()->json(['mensaje' => 'No se encuentra el fabricante', 'codigo' => 404],404);
+		}
+
+		if($metodo === "PATCH"){
+			$nombre = $request->input('nombre');
+			if($nombre != null && $nombre != ''){
+				$fabricante->nombre = $nombre;
+			}
+			$telefono = $request->input('telefono');
+			if($telefono != null && $telefono != ''){
+				$fabricante->telefono = $telefono;
+			}
+			$fabricante->save();
+			return response()->json(['mensaje' => 'Datos modificados', 'codigo' => 200],200);
+		}else{ //Es porque el metodo es PUT
+
+			$nombre = $request->input('nombre');
+			$telefono = $request->input('telefono');
+
+			if(!$nombre || !$telefono){
+				return response()->json(['mensaje' => 'No podemos procesar los datos', 'codigo' => 422], 422);
+			}else{
+				$fabricante->nombre = $request->input('nombre');
+				$fabricante->telefono = $request->input('telefono');
+				$fabricante->save();
+				return response()->json(['mensaje' => 'Datos actualizados', 'codigo' => 200], 200);
+			}
+		}
 	}
 
 

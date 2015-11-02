@@ -12,7 +12,7 @@
 */
 
 Route::resource('vehiculos','VehiculoController',['only' => ['show','index']]);
-Route::resource('fabricantes','FabricanteController');
+Route::resource('fabricantes','FabricanteController', ['except' => ['create','edit']]);
 Route::resource('fabricantes.vehiculos','FabricanteVehiculoController',['except' => 'show']);
 
 
