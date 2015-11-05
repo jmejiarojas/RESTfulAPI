@@ -33,7 +33,9 @@ class FabricanteVehiculoController extends Controller {
 	public function store(Request $request, $id)
 	{
 
-		if(!$request->input('color') || !$request->input('cilindraje') || !$request->input('potencia') || !$request->input('peso')){
+		if(!$request->input('color') || !$request->input('cilindraje') ||
+			!$request->input('potencia') || !$request->input('peso')){
+
 			return response()->json(['mensaje' => 'Complete los datos ...' , 'codigo' => 422], 422);
 			//return "Complete todos los datos";
 		}
@@ -55,9 +57,75 @@ class FabricanteVehiculoController extends Controller {
 	}
 
 
-	public function update($idFabricante, $idVehiculo)
+	public function update(Request $request, $idFabricante, $idVehiculo)
 	{
-		return "Estoy en update";
+        /*
+         * Así como esta nuestra estructura se podría actualizar el vehículo de "frente",
+         * pero si buscamos robustez deberíamos acceder de la siguiente manera, buscando
+         * al fabricante y luego a sus vehiculos, con el metodo find accedemos a un
+         * vehículo en particular.
+         */
+		$metodo = $request->method();
+		$fabricante = Fabricante::find($idFabricante);
+
+		if(!$fabricante){
+			return response()->json(['mensaje' => 'No se encuentra este fabricante', 'codigo' => 404],404);
+		}
+		//Si llegamos acá, es porque fabricante si existe
+		$vehiculo = $fabricante->vehiculos()->find($idVehiculo);
+
+		if(!$vehiculo){
+            return response()->json(['mensaje' => 'No se encuentra este vehiculo asociado al fabricante', 'codigo' => 404], 404);
+        }
+
+        $color = $request->input('color');
+        $cilindraje = $request->input('cilindraje');
+        $potencia = $request->input('potencia');
+        $peso = $request->input('peso');
+        $bandera = false; //Para controlar que el usuario haya ingresado al menos uno de los atributos
+
+        if($metodo === 'PATCH'){
+
+           if($color != null || $color != ''){
+               $vehiculo->color = $color;
+               $bandera = true;
+           }
+
+           if($cilindraje != null || $cilindraje != ''){
+                $vehiculo->cilindraje = $cilindraje;
+               $bandera = true;
+            }
+
+           if($potencia != null || $potencia != ''){
+               $vehiculo->potencia = $potencia;
+               $bandera = true;
+           }
+
+            if($peso != null || $peso != ''){
+                $vehiculo->peso = $peso;
+                $bandera = true;
+            }
+
+            if($bandera == true){ // Es lo mismo poner if($bandera)
+                $vehiculo->save();
+                return response()->json(['mensaje' => 'Vehiculo actualizado', 'codigo' => 200], 200);
+            }else{
+                return response()->json(['mensaje' => 'No se modifico ningun vehiculo', 'codigo' => 200], 200);
+            }
+
+        }else{ //Es porque usa el método 'PUT'
+            if(!$color || !$cilindraje || !$potencia || !$peso){
+                return response()->json(['mensaje' => 'No se pudieron procesar los valores', 'codigo' => 422],422);
+            }else{
+                $vehiculo->color = $color;
+                $vehiculo->cilindraje = $cilindraje;
+                $vehiculo->potencia = $potencia;
+                $vehiculo->peso = $peso;
+
+                $vehiculo->save();
+                return response()->json(['mensaje' => 'Se actualizo el vehiculo', 'codigo' => 200], 200);
+            }
+        }
 	}
 
 
@@ -67,3 +135,13 @@ class FabricanteVehiculoController extends Controller {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+

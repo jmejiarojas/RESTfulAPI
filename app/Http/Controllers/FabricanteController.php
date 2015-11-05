@@ -48,6 +48,7 @@ class FabricanteController extends Controller {
 	{
 		$metodo = $request->method();
 		$fabricante = Fabricante::find($id);
+		$bandera = false;
 
 		if(!$fabricante){
 			return response()->json(['mensaje' => 'No se encuentra el fabricante', 'codigo' => 404],404);
@@ -57,13 +58,20 @@ class FabricanteController extends Controller {
 			$nombre = $request->input('nombre');
 			if($nombre != null && $nombre != ''){
 				$fabricante->nombre = $nombre;
+				$bandera = true;
 			}
 			$telefono = $request->input('telefono');
 			if($telefono != null && $telefono != ''){
 				$fabricante->telefono = $telefono;
+				$bandera = true;
 			}
-			$fabricante->save();
-			return response()->json(['mensaje' => 'Datos modificados', 'codigo' => 200],200);
+
+			if($bandera){
+				$fabricante->save();
+				return response()->json(['mensaje' => 'Datos modificados', 'codigo' => 200],200);
+			}else{
+                return response()->json(['mensaje' => 'No se modifico los datos', 'codigo' => 200], 200);
+            }
 		}else{ //Es porque el metodo es PUT
 
 			$nombre = $request->input('nombre');

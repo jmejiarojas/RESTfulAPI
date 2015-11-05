@@ -11,8 +11,9 @@
 |
 */
 
-Route::resource('vehiculos','VehiculoController',['only' => ['show','index']]);
 Route::resource('fabricantes','FabricanteController', ['except' => ['create','edit']]);
-Route::resource('fabricantes.vehiculos','FabricanteVehiculoController',['except' => 'show']);
+Route::resource('vehiculos','VehiculoController',['only' => ['show','index']]);
+Route::resource('fabricantes.vehiculos','FabricanteVehiculoController',['except' => 'show']); //Asi se anida  con un "punto"
+
 
 
