@@ -124,7 +124,7 @@ class FabricanteVehiculoController extends Controller {
 
 	public function destroy($idFabricante, $idVehiculo)
 	{
-		//
+		//Queda pendiente hacer el metodo destroy
 	}
 
 }
