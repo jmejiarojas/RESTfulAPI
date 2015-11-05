@@ -50,13 +50,6 @@ class FabricanteVehiculoController extends Controller {
 		return response()->json(['mensaje' => 'Vehiculo insertado', 'codigo' => 201],201);
 	}
 
-
-	public function show($idFabricante, $idVehiculo)
-	{
-		return 'Mostrando vehiculo '.$idVehiculo." del fabricante: ".$idFabricante;
-	}
-
-
 	public function update(Request $request, $idFabricante, $idVehiculo)
 	{
         /*
