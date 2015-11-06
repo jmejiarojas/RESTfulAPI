@@ -53,10 +53,10 @@ class FabricanteVehiculoController extends Controller {
 	public function update(Request $request, $idFabricante, $idVehiculo)
 	{
         /*
-         * Asï¿½ como esta nuestra estructura se podrï¿½a actualizar el vehï¿½culo de "frente",
-         * pero si buscamos robustez deberï¿½amos acceder de la siguiente manera, buscando
+         * Así como esta nuestra estructura se podría actualizar el vehículo de "frente",
+         * pero si buscamos robustez deberíamos acceder de la siguiente manera, buscando
          * al fabricante y luego a sus vehiculos, con el metodo find accedemos a un
-         * vehï¿½culo en particular.
+         * vehículo en particular.
          */
 		$metodo = $request->method();
 		$fabricante = Fabricante::find($idFabricante);
@@ -64,7 +64,7 @@ class FabricanteVehiculoController extends Controller {
 		if(!$fabricante){
 			return response()->json(['mensaje' => 'No se encuentra este fabricante', 'codigo' => 404],404);
 		}
-		//Si llegamos acï¿½, es porque fabricante si existe
+		//Si llegamos acá, es porque fabricante si existe
 		$vehiculo = $fabricante->vehiculos()->find($idVehiculo);
 
 		if(!$vehiculo){
@@ -106,7 +106,7 @@ class FabricanteVehiculoController extends Controller {
                 return response()->json(['mensaje' => 'No se modifico ningun vehiculo', 'codigo' => 200], 200);
             }
 
-        }else{ //Es porque usa el mï¿½todo 'PUT'
+        }else{ //Es porque usa el método 'PUT'
             if(!$color || !$cilindraje || !$potencia || !$peso){
                 return response()->json(['mensaje' => 'No se pudieron procesar los valores', 'codigo' => 422],422);
             }else{
@@ -124,7 +124,7 @@ class FabricanteVehiculoController extends Controller {
 
 	public function destroy($idFabricante, $idVehiculo)
 	{
-		//Queda pendiente hacer el metodo destroyyyyoooooo
+		//Queda pendiente hacer el metodo destroy
 	}
 
 }
