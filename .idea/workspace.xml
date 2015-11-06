@@ -4,8 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/WelcomeController.php" line="13" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35875172-9cc8-4f48-bde2-5cfb16374ece" name="Default" comment="">
+    <list default="true" id="35875172-9cc8-4f48-bde2-5cfb16374ece" name="Default" comment="Se hizo una prueba en FabricanteVehiculoController que es en un comentario prescindible">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FabricanteVehiculoController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FabricanteVehiculoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RESTfulAPI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,8 +75,8 @@
       <file leaf-file-name="FabricanteVehiculoController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FabricanteVehiculoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70866144">
-              <caret line="126" column="49" selection-start-line="126" selection-start-column="49" selection-end-line="126" selection-end-column="49" />
+            <state vertical-scroll-proportion="1.1811024">
+              <caret line="126" column="52" selection-start-line="126" selection-start-column="52" selection-end-line="126" selection-end-column="52" />
               <folding>
                 <element signature="e#39#58#0#PHP" expanded="true" />
               </folding>
@@ -252,7 +253,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/www/TareasCibertecWeb" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="plugins&#9;ACTION&#9;null" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="140" />
@@ -325,6 +326,7 @@
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18594436" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -353,6 +355,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Se hizo una prueba en FabricanteVehiculoController que es en un comentario prescindible" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se hizo una prueba en FabricanteVehiculoController que es en un comentario prescindible" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -756,8 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FabricanteVehiculoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70866144">
-          <caret line="126" column="49" selection-start-line="126" selection-start-column="49" selection-end-line="126" selection-end-column="49" />
+        <state vertical-scroll-proportion="1.1811024">
+          <caret line="126" column="52" selection-start-line="126" selection-start-column="52" selection-end-line="126" selection-end-column="52" />
           <folding>
             <element signature="e#39#58#0#PHP" expanded="true" />
           </folding>
